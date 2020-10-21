@@ -42,7 +42,7 @@ public class MediaUtils
     {
         final String filename = new StringBuilder("image-")
                 .append(UUID.randomUUID().toString())
-                .append(".jpg")
+                .append(".png")
                 .toString();
 
         // defaults to Public Pictures Directory
@@ -175,7 +175,7 @@ public class MediaUtils
 
         scaledPhoto = Bitmap.createBitmap(photo, 0, 0, photo.getWidth(), photo.getHeight(), matrix, true);
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        scaledPhoto.compress(Bitmap.CompressFormat.JPEG, result.quality, bytes);
+        scaledPhoto.compress(Bitmap.CompressFormat.PNG, result.quality, bytes);
 
         final boolean forceLocal = requestCode == REQUEST_LAUNCH_IMAGE_CAPTURE;
         final File resized = createNewFile(context, options, !forceLocal);
